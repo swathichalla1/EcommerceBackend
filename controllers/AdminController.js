@@ -13,7 +13,7 @@ const AdminRegister = async(req,res)=>{
 try{
 const CheckEmailInDB = await Admin.findOne({email});
 if (CheckEmailInDB){
-    return res.status(400).json("Email already taken!!");
+    return res.status(400).json({error:"Email already taken!!"});
 }
 const hashedPassword = await bcrypt.hash(password,10);
 const newAdmin = new Admin({

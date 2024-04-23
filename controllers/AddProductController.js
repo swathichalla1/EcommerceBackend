@@ -59,7 +59,7 @@ const getProductById = async(req,res)=>{
 
     }catch(error){
         console.log(error);
-        res.status(500).json("internal server error:Backend");
+        res.status(500).json({error:"internal server error:Backend"});
     }
 }
 
@@ -74,7 +74,7 @@ const deleteProductById = async(req,res)=>{
         res.status(200).json({message:"Product deleted succesfully:Backend"});
     }catch(error){
         console.log(error);
-        res.status(500).json("internal server error:Backend");
+        res.status(500).json({error:"internal server error:Backend"});
     }
 }
 
@@ -92,7 +92,7 @@ const getAllProducts = async(req,res)=>{
 
     }catch(error){
         console.log(error);
-        res.status(500).json("internal server error:Backend");
+        res.status(500).json({error:"internal server error:Backend"});
     }
 }
 

@@ -8,11 +8,11 @@ const UserRoute = require("./routes/UserRoute");
 const cors = require("cors");
 const AddProductRoutes = require("./routes/AddProductRoute");
 const path = require("path");
-
+app.use(cors());
 const PORT = process.env.PORT||5001;
 
 dotEnv.config();
-app.use(cors());
+
 mongoose.connect(process.env.MONGO_URI)
 .then(()=>console.log("MongoDB connected Successfully"))
 .catch((error)=>console.log(error))
