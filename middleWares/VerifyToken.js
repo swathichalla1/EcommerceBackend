@@ -18,7 +18,7 @@ const verifytoken = async(req,res,next)=>{
             return res.status(404).json({error:"Admin not found:Backend"})
         }
         req.adminId = admin._id
-
+        
         next()
     }catch(error){
         console.log(error);

@@ -23,6 +23,7 @@ const AddProduct = async(req,res)=>{
     try{
         const{productName,rating,price,description} = req.body;
         const image = req.file?req.file.filename:undefined;
+         
         
         const admin = await Admin.findById(req.adminId);
         if (!admin){
@@ -32,6 +33,10 @@ const AddProduct = async(req,res)=>{
         const addProduct = new AdminAddProduct({
             productName,rating,price,description,image,admin:admin._id
         })
+
+        
+
+        
     
         const savedProduct = await addProduct.save();
         
@@ -65,7 +70,7 @@ const getProductById = async(req,res)=>{
 
 const deleteProductById = async(req,res)=>{
     try{
-        const productId = req.params;
+        const productId = req.params.productId;
         const deletedProduct = await AdminAddProduct.findByIdAndDelete(productId);
 
         if(!deletedProduct){

@@ -41,7 +41,8 @@ const AdminLogin = async(req,res)=>{
         }
         const token = jwt.sign({adminId:admin._id},secretKey,{expiresIn:"1h"})
         console.log("Admin login succesfull:Backend");
-        res.status(200).json({success:"Login successful:Backend",token})
+        const Adminidentity = admin._id;
+        res.status(200).json({success:"Login successful:Backend",token,Adminidentity})
         
     }catch(error){
         console.log("Backend : ",error)
