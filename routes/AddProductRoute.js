@@ -11,11 +11,12 @@ router.get("/:productId",AddProductController.getProductById);
 router.delete("/delete/:productId",AddProductController.deleteProductById);
 
 
-router.get('/uploads/:imageName',(req,res)=>{
-    console.log("url hitted");
+router.get("/uploads/:imageName",(req,res)=>{
+    //console.log("url hitted");
     const imageName =req.params.imageName;
-    res.headersSent('content-Type','image/jpeg');
-    console.log(path.join(__dirname,"..","uploads",imageName));
+    //res.headersSent('Content-Type','image/jpeg');
+    res.setHeader('Content-Type','image/jpeg');
+    //console.log(path.join(__dirname,"..","uploads",imageName));
     res.sendFile(path.join(__dirname,"..","uploads",imageName));
 })
 module.exports = router

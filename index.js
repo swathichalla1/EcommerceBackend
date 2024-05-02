@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 app.use('/Admin',AdminRoute);
 app.use('/User',UserRoute);
 app.use('/Product',AddProductRoutes);
-app.use("/uploads",express.static("uploads"));
+app.use('/uploads',express.static("uploads"),AddProductRoutes);
 
 
 app.listen(PORT,()=>{

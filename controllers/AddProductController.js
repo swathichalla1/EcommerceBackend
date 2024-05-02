@@ -72,6 +72,7 @@ const deleteProductById = async(req,res)=>{
     try{
         const productId = req.params.productId;
         const deletedProduct = await AdminAddProduct.findByIdAndDelete(productId);
+        //console.log(productId);
 
         if(!deletedProduct){
             return res.status(404).json({error:"No product found:Backend"})
